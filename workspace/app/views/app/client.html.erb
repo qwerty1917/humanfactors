@@ -1,0 +1,21 @@
+<div class="container">
+    <div>
+        <ul class="list-group">
+            <% @all_order_list.each do |order| %>
+                <li class="list-group-item <% if order.is_it_done == true%>list-group-item-success<%end%>">
+                    <p class="order_detail"><%= order.order_detail%></p>
+                    <div class="order_id" style="display:none;"><%= order.id%></div>
+                    <div class="btn-group hmp-list-btn" role="group" aria-label="...">
+                        <% if order.is_it_done == false%>
+                            <button type="button" class="btn btn-success orderFinish">finish</button>
+                        <%else%>
+                            <button type="button" class="btn btn-warning orderUnFinish">retrive to not finished</button>
+                        <%end%>
+                    </div>
+                    <div style="clear: both;"></div>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+</div>
+<script src="/js/admin.js"></script>
